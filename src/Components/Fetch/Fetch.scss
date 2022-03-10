@@ -1,4 +1,18 @@
 // define primary colors
-$green: #8A884F;
-$yellow: #DABC5C;
-$brown: #9D663F;
+$green: #8a884f;
+$yellow: #dabc5c;
+$brown: #9d663f;
+
+.characterCard {
+  background-color: $green !important;
+}
+
+.cardContainer {
+  width: 80% !important;
+  margin: auto !important;
+}
+
+.searchBox {
+  width: 60%;
+  margin: auto;
+}
