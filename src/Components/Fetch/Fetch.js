@@ -14,12 +14,12 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function Fetch() {
+const Fetch = () => {
   const [data, setData] = useState([]);
   const fetchData = async () => {
     const { data } = await axios.get("https://the-one-api.dev/v2/character", {
       headers: {
-        authorization: "Bearer 1uilorUVzSOMf1_gENAe",
+        authorization: "Bearer ENeWeOy81b3sQzzfe9qv",
       },
     });
     setData(data.docs);
@@ -41,8 +41,8 @@ export default function Fetch() {
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
         {data.map((item) => (
-          <Grid item xs={2} sm={4} md={4} key={item.id}>
-            <Item>
+          <Grid item xs={2} sm={4} md={4}>
+            <Item key={item.id}>
               <h2>{item.name}</h2>
               <h3>{item.race}</h3>
             </Item>
@@ -52,3 +52,5 @@ export default function Fetch() {
     </Box>
   );
 }
+
+export default Fetch;
