@@ -2,17 +2,12 @@ import { React, useState, useEffect } from "react";
 import "./Fetch.scss";
 import axios from "axios";
 
-import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import { Button, CardActionArea, CardActions } from "@mui/material";
 
 const Fetch = () => {
   const [data, setData] = useState([]);
@@ -65,12 +60,32 @@ const Fetch = () => {
               }
             })
             .map((item) => (
-              <Grid item xs={2} sm={4} md={4}>
-                <Item key={item.id} className="characterCard">
-                  <h2>{item.name}</h2>
-                  <h5>{item.race}</h5>
-                  <h6>{item.gender}</h6>
-                </Item>
+              <Grid item xs={2} sm={4} md={4} key={item._id}>
+                <Card  className="characterCard">
+                  <CardActionArea>
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {item.name}
+                      </Typography>
+                      <Typography variant="body1" color="text.secondary">
+                        Race: {item.race}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Gender: {item.gender}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions>
+                    <Button
+                      size="small"
+                      color="primary"
+                      className="wikiButton"
+                      onClick={() => window.open(item.wikiUrl)}
+                    >
+                      Wiki
+                    </Button>
+                  </CardActions>
+                </Card>
               </Grid>
             ))}
         </Grid>

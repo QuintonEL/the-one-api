@@ -3,16 +3,25 @@ $green: #8a884f;
 $yellow: #dabc5c;
 $brown: #9d663f;
 
-.characterCard {
-  background-color: $green !important;
-}
-
-.cardContainer {
-  width: 80% !important;
-  margin: auto !important;
-}
-
 .searchBox {
   width: 60%;
   margin: auto;
+}
+
+.wikiButton {
+  color: $yellow;
+}
+
+.card {
+  border-radius: 50px;
+  background: #7a7a7a;
+  box-shadow: 20px 20px 40px #686868, -20px -20px 40px #8c8c8c;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+  font-family: "Bilbo", cursive;
 }
